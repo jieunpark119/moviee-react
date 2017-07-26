@@ -44,7 +44,7 @@ export class NewMovies extends React.Component {
           {this.state.movies.map((movie, index) => {
             return (
               <Link to={`/movie/${this.state.movies[index].id}`} key={index} className="movieLink">
-                <img src={this.state.movies[index].poster_path === 'https://image.tmdb.org/t/p/w640null' ? 'http://via.placeholder.com/640x960' : `https://image.tmdb.org/t/p/w640/${this.state.movies[index].poster_path}`} alt={`${this.state.movies.title} poster`} className="imgResponsive" />
+                <img src={this.state.movies[index].poster_path === null ? 'http://via.placeholder.com/640x960' : `https://image.tmdb.org/t/p/w640/${this.state.movies[index].poster_path}`} alt={`${this.state.movies.title} poster`} className="imgResponsive" />
 
                 <div className="movieInfo">
                   <h3>{this.state.movies[index].title}</h3>

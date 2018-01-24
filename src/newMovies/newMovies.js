@@ -16,7 +16,7 @@ export class NewMovies extends React.Component {
     // Get a date range between today and one month ago to dynamically update the link for the request
     let todayDate = new Date();
     let today = todayDate.getFullYear() + '-' + (todayDate.getMonth() + 1) + '-' + todayDate.getDate();
-    let oneMonthAgo = todayDate.getFullYear() + '-' + todayDate.getMonth() + '-' + todayDate.getDate();
+    let oneMonthAgo = (todayDate.getMonth() === 0 ? todayDate.getFullYear() - 1 : todayDate.getFullYear()) + '-' + (todayDate.getMonth() === 0 ? todayDate.getMonth() + 12 : todayDate.getMonth()) + '-' + todayDate.getDate();
 
     fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=${oneMonthAgo}&primary_release_date.lte=${today}`)
       .then(response => {
